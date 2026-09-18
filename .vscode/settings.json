@@ -1,3 +1,13 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:system"
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "duckdb.databases": [
+        {
+            "alias": "force2020",
+            "type": "file",
+            "path": "/Users/user/Desktop/desktop/General/projects/data/force_2020_well_log_analysis/database/force2020.duckdb",
+            "readOnly": true,
+            "attached": true
+        }
+    ],
+    "duckdb.defaultDatabase": "force2020"
 }
