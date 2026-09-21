@@ -6,7 +6,7 @@
             "type": "file",
             "path": "/Users/user/Desktop/desktop/General/projects/data/force_2020_well_log_analysis/database/force2020.duckdb",
             "readOnly": true,
-            "attached": true
+            "attached": false
         }
     ],
     "duckdb.defaultDatabase": "force2020"

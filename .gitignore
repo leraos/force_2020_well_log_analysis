@@ -1,0 +1,15 @@
+# macos finder metadata
+.DS_Store
+.AppleDouble
+.__MACOSX
+._*
+
+# macos filesystem metadata
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.fseventsd
+.DocumentRevisions-V100
+.AppleDB
+.AppleDesktop
+.apdisk
