@@ -50,27 +50,33 @@ manipulation.
 
 ## Exploratory analysis
 
-<p align="center">
+About 1.43 million rows contain a supplied lithofacies label. The dataset
+is strongly unbalanced: shale accounts for about 61% of labelled samples,
+followed by sandstone and sandstone/shale. Several other lithologies occur
+much less frequently.
+
+<!-- <p align="center">
     <img src="./images/facies_plot.png"
         alt="FORCE 2020 lithology sample counts"
         width="630">
-</p>
-The dataset is strongly unbalanced. Shale accounts for about 61% of the labeled samples, followed by sandstone and mixed or interbedded sandstone/shale. Log availability also varies considerably between curves and wells. These issues should be considered before fitting a classification model.
+</p> -->
 
-For the first geological analysis I concentrated on GR, RHOB, NPHI, DTC, RDEP and PEF. About 1.43 million rows contain a supplied lithofacies label. Shale is the dominant class, followed by sandstone and sandstone/shale, while several other lithologies occur much less frequently.
+### Representative well
+
+The principal logs were examined together with the supplied lithofacies
+interpretation to compare log response with geological classification.
 
 <p align="center">
   <img src="./images/log_panel_example.png"
-       alt="example FORCE 2020 wireline-log and lithofacies panel"
+       alt="FORCE 2020 Well 34/10-16R wireline-log and lithofacies panel"
        width="950">
 </p>
-
 I compared log distributions between lithofacies and examined several conventional crossplots. Some lithologies produce recognisable responses, but the main siliciclastic classes overlap strongly.
 
 <p align="center">
   <img src="./images/cross_plot_example_nphi_rhob.png"
        alt="neutron porosity and bulk-density crossplot by lithofacies"
-       width="650">
+       width="700">
 </p>
 
 This overlap, together with class imbalance and variable log coverage, will need to be considered during modelling.
@@ -91,6 +97,10 @@ Python · Pandas · NumPy · Matplotlib · DuckDB · SQL · GIS
 <img src="./images/well_locations_trajectories_vertically_exaggerated_3d_map.png"
      alt="well locations and trajectories in 3d"
      width="600"> -->
+
+
+
+
 
 
 
