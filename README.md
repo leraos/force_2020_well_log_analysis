@@ -24,10 +24,10 @@ manipulation.
        width="470">
 </td>
 </tr>
-<tr>
+<!-- <tr>
 <td align="center"><sub>118 FORCE 2020 well locations</sub></td>
 <td align="center"><sub>Example reconstructed well trajectory</sub></td>
-</tr>
+</tr> -->
 </table>
 
 
@@ -53,7 +53,7 @@ manipulation.
 <p align="center">
     <img src="./images/facies_plot.png"
         alt="FORCE 2020 lithology sample counts"
-        width="650">
+        width="630">
 </p>
 The dataset is strongly unbalanced. Shale accounts for about 61% of the labeled samples, followed by sandstone and mixed or interbedded sandstone/shale. Log availability also varies considerably between curves and wells. These issues should be considered before fitting a classification model.
 
@@ -70,7 +70,7 @@ I compared log distributions between lithofacies and examined several convention
 <p align="center">
   <img src="./images/cross_plot_example_nphi_rhob.png"
        alt="neutron porosity and bulk-density crossplot by lithofacies"
-       width="680">
+       width="650">
 </p>
 
 This overlap, together with class imbalance and variable log coverage, will need to be considered during modelling.
