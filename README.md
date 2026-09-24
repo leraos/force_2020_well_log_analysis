@@ -1,15 +1,36 @@
 # FORCE 2020 Well-Log Analysis
-
-<img src="./images/well_locations_map.png"
-     alt="FORCE 2020 well locations on the Norwegian continental shelf"
-     width="350"
-     align="right">
      
 ## Purpose
 This project uses the public FORCE 2020 North Sea well-log
 dataset to develop reproducible workflows for subsurface data
 quality assessment, exploratory analysis and SQL/Pandas data
 manipulation.
+
+
+
+
+<h2>Dataset geometry</h2>
+
+<table>
+<tr>
+<td width="42%" align="center">
+  <img src="./images/well_locations_map.png"
+       alt="FORCE 2020 well locations on the Norwegian continental shelf"
+       width="330">
+</td>
+<td width="58%" align="center">
+  <img src="./images/well_trajectory.png"
+       alt="example FORCE 2020 well trajectory"
+       width="470">
+</td>
+</tr>
+<tr>
+<td align="center"><sub>118 FORCE 2020 well locations</sub></td>
+<td align="center"><sub>Example reconstructed well trajectory</sub></td>
+</tr>
+</table>
+
+
 
 ## Current work
 
@@ -26,12 +47,6 @@ manipulation.
 - Compared log responses between lithofacies using representative well panels and petrophysical crossplots.
 
 - SQL analysis using DuckDB
-
-<p align="center">
-<img src="./images/well_trajectory.png"
-    alt="example FORCE 2020 well trajectory"
-    width="500">
-</p>
 
 ## Exploratory analysis
 
@@ -55,7 +70,7 @@ I compared log distributions between lithofacies and examined several convention
 <p align="center">
   <img src="./images/cross_plot_example_nphi_rhob.png"
        alt="neutron porosity and bulk-density crossplot by lithofacies"
-       width="650">
+       width="680">
 </p>
 
 This overlap, together with class imbalance and variable log coverage, will need to be considered during modelling.
