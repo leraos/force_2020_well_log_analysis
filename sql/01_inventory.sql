@@ -3,63 +3,88 @@
 
 -- ### retrieval
 
--- select * 
+-- ### check well_inventory
+select * from well_inventory;
+
+-- ### check curve_inventory
+select * from curve_inventory;
+
+
 select file, curves
 from well_inventory
 order by curves desc
 limit 10;
 
+
 -- ### filtering rows 
 
-select well, curve, missing_pct
-from curve_inventory
+select well, curve, "missing_%" as missing_pct from curve_inventory -- AS gives column name alias 
 where missing_pct >50
 order by missing_pct desc
 limit 30;
 
 
+-- ### aggregations
+-- count()
+-- sum()
+-- avg()
+-- min()
+-- max()
 
+-- ### count n of wells
+select
+    count(*) as number_of_wells
+from well_inventory;
 
+-- ### find n unique curves
+select
+    count(distinct curve) as unique_curves
+from curve_inventory;
 
+-- ### find min and max curves
+select
+    round(avg(curves), 1) as avg_curves_per_well,
+    min(curves) as min_curves,
+    max(curves) as max_curves
+from well_inventory;
 
--- -- aggregation
+-- ### join by file column, inner join gives wells where a matching curve exists.
+select
+    w.file,
+    w.well,
+    w.samples,
+    w.curves,
+    c.curve,
+    c.unit,
+    c."missing_%" as missing_pct
+from well_inventory as w
+inner join curve_inventory as c
+    on w.file = c.file
+order by
+    w.file,
+    c.curve;
 
--- SELECT
---     curve,
---     COUNT(*) AS wells_with_curve,
---     AVG(missing_pct) AS mean_missing_pct
--- FROM curve_inventory
--- GROUP BY curve
--- ORDER BY wells_with_curve DESC;
+-- ### which wells do not have RHOB
+select 
+    w.well,
+    c.curve
+from well_inventory as w
 
+left join curve_inventory as c
+    on w.file = c.file
+    and c.curve = 'RHOB'
+where c.curve is null;
 
--- -- joins
-
--- SELECT
---     w.well,
---     w.depth_min,
---     w.depth_max,
---     c.curve,
---     c.missing_pct
--- FROM well_inventory AS w
--- LEFT JOIN curve_inventory AS c
---     ON w.well = c.well;
-
-
--- -- window functions
-
--- SELECT
---     well,
---     curve,
---     missing_pct,
---     ROW_NUMBER() OVER (
---         PARTITION BY well
---         ORDER BY missing_pct
---     ) AS coverage_rank
--- FROM curve_inventory;
-
-
-SELECT *
-FROM log_samples
-WHERE well = '15/9-14'
-LIMIT 5;
+-- ### combine aggregation and joins, which wells have the largest number of complete curves (>=80% complete)?
+select
+    w.well,
+    w.curves as total_curves,
+    count(c.curve) as usable_curves
+from well_inventory as w
+left join curve_inventory as c
+    on w.file = c.file
+    and c."missing_%" < 20
+group by
+    w.well,
+    w.curves
+order by usable_curves desc;

@@ -91,8 +91,6 @@ instead of reproducing patterns from preexisting intervals.
 
 Python · Pandas · NumPy · Matplotlib · DuckDB · SQL · GIS
 
-
-
 <!-- 
 <img src="./images/well_locations_trajectories_vertically_exaggerated_3d_map.png"
      alt="well locations and trajectories in 3d"
